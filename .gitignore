@@ -28,6 +28,10 @@ migrate_working_dir/
 build/
 pubspec.lock
 
+# Keep committed preview APK under releases/
+!releases/
+!releases/*.apk
+
 # Symbolication related
 app.*.symbols
 

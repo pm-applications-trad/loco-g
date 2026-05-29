@@ -350,7 +350,7 @@ class _GuessingPhase extends StatelessWidget {
 
   Widget _buildGuessButtons(BuildContext context, L10n l10n) {
     final round = game.currentRound;
-    final buttons = <_GuessButton>[];
+    final buttons = <Widget>[];
 
     switch (round) {
       case RTBRound.redOrBlack:
