@@ -26,20 +26,24 @@ class SettingsScreen extends ConsumerWidget {
         children: [
           _buildSectionTitle(context, l10n.translate('select_language')),
           const SizedBox(height: AppTheme.spacingS),
-          ...['en', 'de', 'es', 'fr'].map((code) {
-            final langKey = 'language_$code';
-            return RadioListTile<String>(
-              title: Text(l10n.translate(langKey)),
-              value: code,
-              groupValue: locale.languageCode,
-              onChanged: (value) {
-                if (value != null) {
-                  ref.read(localeProvider.notifier).state = Locale(value);
-                  ref.read(sharedPrefsProvider).setString(AppConstants.keySelectedLanguage, value);
-                }
-              },
-            );
-          }),
+          RadioGroup<String>(
+            groupValue: locale.languageCode,
+            onChanged: (value) {
+              if (value != null) {
+                ref.read(localeProvider.notifier).state = Locale(value);
+                ref.read(sharedPrefsProvider).setString(AppConstants.keySelectedLanguage, value);
+              }
+            },
+            child: Column(
+              children: ['en', 'de', 'es', 'fr'].map((code) {
+                final langKey = 'language_$code';
+                return RadioListTile<String>(
+                  title: Text(l10n.translate(langKey)),
+                  value: code,
+                );
+              }).toList(),
+            ),
+          ),
           const Divider(height: AppTheme.spacingXL),
           _buildSectionTitle(context, l10n.translate('dark_mode')),
           SwitchListTile(
