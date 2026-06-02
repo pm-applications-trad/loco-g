@@ -112,7 +112,7 @@ class _RoundIntroPhase extends StatelessWidget {
                 padding: const EdgeInsets.all(AppTheme.spacingXL),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     colors: RideTheBusGameScreen.bgGradient,
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
@@ -185,7 +185,6 @@ class _RoundIntroPhase extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: row.asMap().entries.map((slotEntry) {
               final slotIndex = slotEntry.key;
-              final slot = slotEntry.value;
               final isCurrentSlot = isCurrentRow && slotIndex == game.roundStep && game.phase == RTBPhase.guessing;
 
               return Container(
@@ -350,7 +349,7 @@ class _GuessingPhase extends StatelessWidget {
 
   Widget _buildGuessButtons(BuildContext context, L10n l10n) {
     final round = game.currentRound;
-    final buttons = <_GuessButton>[];
+    final buttons = <Widget>[];
 
     switch (round) {
       case RTBRound.redOrBlack:
@@ -981,7 +980,6 @@ class _GuessButton extends StatelessWidget {
   final bool isDiamonds;
 
   const _GuessButton({
-    super.key,
     required this.label,
     required this.icon,
     required this.onTap,
@@ -1055,7 +1053,7 @@ class _AboveCardIndicator extends StatelessWidget {
   final PlayingCard card;
   final L10n l10n;
 
-  const _AboveCardIndicator({super.key, required this.card, required this.l10n});
+  const _AboveCardIndicator({required this.card, required this.l10n});
 
   @override
   Widget build(BuildContext context) {
@@ -1095,7 +1093,6 @@ class _InsideOutsideInfo extends StatelessWidget {
   final L10n l10n;
 
   const _InsideOutsideInfo({
-    super.key,
     required this.card1,
     required this.card2,
     required this.l10n,

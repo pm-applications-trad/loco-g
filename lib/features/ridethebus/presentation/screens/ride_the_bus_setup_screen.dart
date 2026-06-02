@@ -201,7 +201,6 @@ class _RideTheBusSetupScreenState extends ConsumerState<RideTheBusSetupScreen> {
       child: Column(
         children: rules.map((rule) {
           final index = rules.indexOf(rule);
-          final roundNames = ['rtb_red_or_black', 'rtb_higher_or_lower', 'rtb_inside_or_outside', 'rtb_guess_the_suit'];
           return Padding(
             padding: EdgeInsets.only(top: index > 0 ? AppTheme.spacingS : 0),
             child: Row(

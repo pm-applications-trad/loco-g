@@ -42,6 +42,7 @@ android/key.properties
 # iOS related
 ios/Pods/
 ios/.symlinks/
+ios/Flutter/ephemeral/
 
 # Local configuration
 .env

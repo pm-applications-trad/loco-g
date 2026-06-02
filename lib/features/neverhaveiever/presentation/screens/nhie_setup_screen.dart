@@ -37,9 +37,13 @@ class _NHIESetupScreenState extends ConsumerState<NHIESetupScreen> {
     setState(() {
       _playerCount = count;
       final oldNames = _nameControllers.map((c) => c.text).toList();
-      for (final c in _nameControllers) { c.dispose(); }
-      _nameControllers = List.generate(count, (i) =>
-          TextEditingController(text: i < oldNames.length ? oldNames[i] : 'Player ${i + 1}'));
+      for (final c in _nameControllers) {
+        c.dispose();
+      }
+      _nameControllers = List.generate(
+        count,
+        (i) => TextEditingController(text: i < oldNames.length ? oldNames[i] : 'Player ${i + 1}'),
+      );
     });
   }
 
